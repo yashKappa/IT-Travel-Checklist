@@ -61,18 +61,21 @@ function sendNotifications() {
     }
 }
 
-// Request permission for notifications
+// Function to request permission for notifications and start sending notifications
 function requestNotificationPermission() {
     if (Notification.permission !== 'granted') {
         Notification.requestPermission().then(permission => {
             if (permission === 'granted') {
-                sendNotifications();
+                loadChecklist(); // Load checklist data
+                sendNotifications(); // Start sending notifications
             }
         });
     } else {
-        sendNotifications();
+        loadChecklist(); // Load checklist data
+        sendNotifications(); // Start sending notifications
     }
 }
 
 // Start sending notifications when the page loads
 window.onload = requestNotificationPermission;
+    
