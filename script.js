@@ -78,4 +78,43 @@ function requestNotificationPermission() {
 
 // Start sending notifications when the page loads
 window.onload = requestNotificationPermission;
-    
+
+
+// Function to calculate and display total count of items and checked items
+function updateCounts() {
+    const form = document.getElementById('checklistForm');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    const totalCount = checkboxes.length;
+    let checkedCount = 0;
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkedCount++;
+        }
+    });
+
+    document.getElementById('totalCount').textContent = `Total items: ${totalCount}`;
+    document.getElementById('checkedCount').textContent = `Checked items: ${checkedCount}`;
+}
+
+
+// Function to load checklist data from local storage
+function loadChecklist() {
+    const savedData = localStorage.getItem('travelChecklist');
+    if (savedData) {
+        const checklistData = JSON.parse(savedData);
+        for (const key in checklistData) {
+            const checkbox = document.querySelector(`[name="${key}"]`);
+            if (checkbox) {
+                checkbox.checked = checklistData[key];
+            }
+        }
+    }
+    updateCounts(); // Update counts after loading checklist data
+}
+
+// Update counts when a checkbox is clicked
+document.getElementById('checklistForm').addEventListener('change', updateCounts);
+
+// Request permission for notifications and start sending notifications
+window.onload = requestNotificationPermission;
