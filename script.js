@@ -25,3 +25,54 @@ function loadChecklist() {
 
 // Load checklist data when the page loads
 window.onload = loadChecklist;
+
+
+
+// Function to send notifications until all checkboxes are checked
+function sendNotifications() {
+    const form = document.getElementById('checklistForm');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    let uncheckedCount = 0;
+
+    checkboxes.forEach(checkbox => {
+        if (!checkbox.checked) {
+            uncheckedCount++;
+        }
+    });
+
+    if (uncheckedCount > 0) {
+        const notification = new Notification('Travel Checklist Reminder', {
+            body: `You still have ${uncheckedCount} item(s) unchecked on your travel checklist. Don't forget to pack them!`
+        });
+
+        notification.onclick = function () {
+            window.focus();
+        };
+
+        setTimeout(sendNotifications, 60000); // Send notification every minute
+    } else {
+        const notification = new Notification('Travel Checklist Complete', {
+            body: 'Congratulations! You have checked all items on your travel checklist. You are ready to go!'
+        });
+
+        notification.onclick = function () {
+            window.focus();
+        };
+    }
+}
+
+// Request permission for notifications
+function requestNotificationPermission() {
+    if (Notification.permission !== 'granted') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                sendNotifications();
+            }
+        });
+    } else {
+        sendNotifications();
+    }
+}
+
+// Start sending notifications when the page loads
+window.onload = requestNotificationPermission;
