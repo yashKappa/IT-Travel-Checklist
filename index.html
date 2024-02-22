@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Checklist</title>
+</head>
+<body>
+    <h1>Travel Checklist</h1>
+    <form id="checklistForm">
+        <h2>Clothing:</h2>
+        <label><input type="checkbox" name="formalShirt"> Formal Shirts (2)</label><br>
+        <label><input type="checkbox" name="casualShirt"> Casual Shirts/T-Shirts (2)</label><br>
+        <label><input type="checkbox" name="formalPant"> Formal Pants (1)</label><br>
+        <label><input type="checkbox" name="jeans"> Jeans (1)</label><br>
+        <label><input type="checkbox" name="shorts"> Shorts (2)</label><br>
+        <label><input type="checkbox" name="swimmingWear"> Swimming Wear (Separate T-shirt and Shorts)</label><br>
+        <label><input type="checkbox" name="undergarments"> Undergarments (Vests and Underwears)</label><br>
+        <label><input type="checkbox" name="towel"> Towel</label><br>
+        <h2>Footwear:</h2>
+        <label><input type="checkbox" name="formalShoes"> Formal Shoes (1 pair)</label><br>
+        <label><input type="checkbox" name="casualShoes"> Casual Shoes or Chappal (1 pair)</label><br>
+        <label><input type="checkbox" name="socks"> Socks (2 pairs)</label><br>
+        <h2>Personal Care:</h2>
+        <label><input type="checkbox" name="waterBottle"> Water Bottle</label><br>
+        <label><input type="checkbox" name="toothbrush"> Toothbrush</label><br>
+        <label><input type="checkbox" name="toothpaste"> Toothpaste</label><br>
+        <label><input type="checkbox" name="coconutOil"> Coconut Oil</label><br>
+        <label><input type="checkbox" name="perfume"> Perfume</label><br>
+        <label><input type="checkbox" name="facewash"> Facewash</label><br>
+        <label><input type="checkbox" name="moisturizer"> Moisturizer</label><br>
+        <label><input type="checkbox" name="handkerchiefs"> Handkerchiefs</label><br>
+        <h2>Documents:</h2>
+        <label><input type="checkbox" name="ATM Card">ATM Card</label><br>
+        <label><input type="checkbox" name="College ID"> College ID</label><br>
+        <label><input type="checkbox" name="Aadhar Card/PAN Card"> Aadhar Card/PAN Card</label><br>
+        <label><input type="checkbox" name="Notebook and Pen"> Notebook and Pen</label><br>
+        <h2>Electronics:</h2>
+        <label><input type="checkbox" name="charger"> Charger</label><br>
+        <label><input type="checkbox" name="powerBank"> Power Bank</label><br>
+    </form>
+    <button onclick="saveChecklist()">Save Checklist</button>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h2 {
+        margin-top: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #checklistForm {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input[type="checkbox"] {
+        margin-right: 10px;
+    }
+    
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+</style>
