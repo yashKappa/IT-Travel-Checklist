@@ -10,8 +10,11 @@
     <h1>Travel Checklist</h1>
 
     <form id="checklistForm">
+        <div class="head">
         <h2 id="totalCount"></h2>
         <h2 id="checkedCount"></h2>
+        <h2 id="remainingCount"></h2>
+        </div>
         <h2>Clothing:</h2>
         <label><input type="checkbox" name="formalShirt"> Formal Shirts (2)</label><br>
         <label><input type="checkbox" name="casualShirt"> Casual Shirts/T-Shirts (2)</label><br>
@@ -54,7 +57,26 @@
         margin: 0;
         padding: 0;
     }
+
+    .head{
+        background-color: #dddddf;
+        border-radius: 0.5rem;
+        box-shadow: 0 0px 15px rgba(0, 0, 0, 0.329);
+    }
     
+    .head h2{
+        margin-left:  0.5rem;
+    }
+
+    #remainingCount{
+        padding-bottom: 0.5rem;
+    }
+
+    #totalCount{
+        padding-top: 0.5rem;
+    }
+
+
     h2 {
         margin-top: 20px;
     }
